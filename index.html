@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidharth & Shomya's Wedding Invitation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #dcd8e6;
+            background-image: url('assets/pictures/CKP02107.JPG'); /* Optional: Add a background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: right top;
+            color: rgba(31, 30, 29, 0.906);
+            /* mix-blend-mode: color-burn; */
+            /* text-align: center; */
+            height: 100dvh;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .m0 {
+            margin: 0;
+        }
+
+        .container {
+            padding: 20px;
+            /* background-color: rgba(0, 0, 0, 0.5); Semi-transparent background */
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+            font-weight: 100;
+
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+
+        h3 {
+            font-size: 2em;
+            margin: 0.5em 0;
+        }
+
+        h4 {
+            font-size: 1.5em;
+            margin: 1em 0 0.1em;
+        }
+
+        p, ul {
+            font-size: 1.2em;
+            margin-block: 0.5rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .whiteText {
+            color: white;
+        }
+
+        .darkText {
+            color: rgb(53, 52, 52);
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 2em; }
+            h3 { font-size: 1.5em; }
+            h4 { font-size: 1.2em; }
+            p, ul { font-size: 1em; }
+        }
+
+        #muteUnmuteButton {
+            height: 32px;
+            width: 32px;
+            border-radius: 32px;
+            border: none;
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            background: transparent;
+        }
+
+        #muteUnmuteButton img {
+            position: absolute;
+            inset: 4px;
+        }
+
+
+        .date {
+            text-align: center;
+        }
+        .parties {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 8px;
+        }
+        .side {
+            background-color: #d4af9137;
+            backdrop-filter: blur(3px);
+            color: rgba(58, 32, 9, 0.83);
+            padding: 8px;
+            border-radius: 8px;
+            text-align: center;
+            display: grid;
+            grid-template-rows: auto auto auto;
+            gap: 8px;
+            h3 {
+                margin-block-end: 0.25rem;
+            }
+        }
+        .mid {
+            color: rgba(58, 32, 9, 0.83);
+            display: flex;
+            align-items: center;
+        }
+        .venue {
+            text-decoration: none;
+            display: inline-flex;
+            flex-direction: column;
+            color: rgba(58, 32, 9, 0.83);
+            padding: 16px;
+            margin-top: 24px;
+            backdrop-filter: blur(3px);
+            background-color: #fff5ed37;
+            border-radius: 8px;
+        }
+        .otherRituals {
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop id="bgm" preload="auto">
+        <source src="./assets/TheDichotomyOfFame.mp3#t=00:00:20" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+    <button href="https://www.flaticon.com/free-icons/mute" title="mute unmute button" id="muteUnmuteButton">
+        <img src="./assets/icons/muted.png" height="24px" id="mutedIcon" aria-hidden="false" role="presentation">
+        <img src="./assets/icons/speaker.png" height="24px" id="unMutedIcon" role="presentation" class="hide">
+    </button>
+    <div class="container">
+        <h1>Wedding Invitation</h1>
+        <div class="parties">
+            <div class="side">
+                <h3>Shomya</h3>
+                <small>Daughter of</small>
+                <div><div>Pramod Kumar &</div>Seema Devi</div>
+            </div>
+            <div class="mid">
+                <h4>Weds</h4>
+            </div>
+            <div class="side">
+                <h3>Sidharth</h3>
+                <small>Son of</small>
+                <div><div>Raj Kishore Prasad &</div>Dr. Sunita Prasad</div>
+            </div>
+            
+            
+        </div>
+        <p class="date">
+            <time datetime="2024-12-05">5<sup>th</sup> December 2024</time>
+        </p>
+
+        
+        <a href="https://maps.app.goo.gl/LLPKPGQ7W2UEGeJg7" target="_blank" class="venue">
+            <h4 class="m0">Venue:</h4>
+            Maurya Hotel, Gobarsahi
+            <div>Muzaffarpur, Bihar</div>
+        </a>
+        <div class="otherRituals">
+            <h4>Other Wedding Rituals:</h4>
+            <ul>
+                <li>3rd December - Haldi and Mehendi Ceremony</li>
+                <li>4th December - Matkor puja and Priti bhoj</li>
+            </ul>
+        </div>
+        
+    </div>
+    <script >
+        const muteUnmuteButton = document.getElementById("muteUnmuteButton");
+        const audio = document.getElementById("bgm");
+        const mutedIcon = document.getElementById("mutedIcon");
+        const unMutedIcon = document.getElementById("unMutedIcon");
+
+        function muteToggle() {
+            if (audio.muted) {
+                audio.muted = false;
+                unMutedIcon.classList.add("hide");
+                mutedIcon.classList.remove("hide");
+            } else {
+                audio.muted = true;
+                mutedIcon.classList.add("hide");
+                unMutedIcon.classList.remove("hide");
+            }
+        }
+        muteUnmuteButton.addEventListener("click", muteToggle);
+
+
+        
+        function addToCalendar() {
+            const eventTitle = "Sidharth & Shomya's Wedding";
+            const eventStart = new Date('2024-12-05T17:00:00'); 
+            const eventEnd = new Date('2024-12-06T03:00:00');
+            const eventDescription = "Join us for the wedding celebration!";
+            const eventLocation = "Maurya Hotel, Gobarsahi, Muzaffarpur, Bihar";
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if (/android/i.test(userAgent)) {
+                // For Android devices, redirect to Google Calendar
+                const calendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${formatDate(eventStart)}/${formatDate(eventEnd)}&details=${encodeURIComponent(eventDescription)}&location=${encodeURIComponent(eventLocation)}`;
+                window.open(calendarUrl, '_blank');
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                // For iOS devices, create an ICS file
+                const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:${eventTitle}
+DTSTART:${formatDate(eventStart)}
+DTEND:${formatDate(eventEnd)}
+DESCRIPTION:${eventDescription}
+LOCATION:${eventLocation}
+END:VEVENT
+END:VCALENDAR`;
+
+                const blob = new Blob([icsContent], { type: 'text/calendar' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'wedding.ics';
+                a.click();
+                URL.revokeObjectURL(url);
+            } else {
+                // Fallback for other devices (desktop, etc.)
+                alert("To add this event to your calendar, please use Google Calendar or an ICS-compatible app.");
+            }
+        }
+
+        function formatDate(date) {
+            return date.toISOString().replace(/-|:|\.\d\d\d/g, "").slice(0, 15);
+        }
+    </script>
+</body>
+</html>
