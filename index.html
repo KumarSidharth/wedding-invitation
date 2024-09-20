@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sidharth & Shomya's Wedding Invitation</title>
     <style>
+        @font-face {
+            font-family: cursive;
+            src: url("./assets/fonts/CedarvilleCursive-Regular.ttf");
+        }
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: cursive, 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #dcd8e6;
@@ -17,7 +21,10 @@
             color: rgba(31, 30, 29, 0.906);
             /* mix-blend-mode: color-burn; */
             /* text-align: center; */
-            height: 100dvh;
+            min-height: 900px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .hide {
@@ -25,23 +32,30 @@
         }
 
         .m0 {
-            margin: 0;
+            margin: 0 !important;
         }
 
-        .container {
+        .textCenter {
+            text-align: center;
+        }
+
+        .top {
             padding: 20px;
             /* background-color: rgba(0, 0, 0, 0.5); Semi-transparent background */
             border-radius: 10px;
             max-width: 600px;
             margin: auto;
+            display: grid;
+            grid-template-rows: 100px 200px 100px 120px 200px;
+            row-gap: auto;
         }
 
         h1 {
             font-size: 3em;
-            margin-bottom: 0.5em;
+            margin: 0;
             font-weight: 100;
-
             text-align: center;
+            line-height: 1.2;
         }
 
         h2 {
@@ -54,7 +68,7 @@
             margin: 0.5em 0;
         }
 
-        h4 {
+        h4, .h4 {
             font-size: 1.5em;
             margin: 1em 0 0.1em;
         }
@@ -103,7 +117,15 @@
 
 
         .date {
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #addWeddingToCalendar {
+            background: transparent;
+            border: 1px solid grey;
+            color: currentColor;
         }
         .parties {
             display: grid;
@@ -114,7 +136,7 @@
             background-color: #d4af9137;
             backdrop-filter: blur(3px);
             color: rgba(58, 32, 9, 0.83);
-            padding: 8px;
+            padding: 8px 8px 16px;
             border-radius: 8px;
             text-align: center;
             display: grid;
@@ -132,66 +154,107 @@
         .venue {
             text-decoration: none;
             display: inline-flex;
-            flex-direction: column;
+            align-items: center;
             color: rgba(58, 32, 9, 0.83);
             padding: 16px;
             margin-top: 24px;
             backdrop-filter: blur(3px);
             background-color: #fff5ed37;
             border-radius: 8px;
+            max-width: 60%;
+            gap: 8px;
+            h4 {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                margin-bottom: 8px;
+            }
+        }
+        .venue:hover {
+            text-decoration: underline;
+        }
+        .weddingDate {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 0 4px;
+            border-radius: 4px;
         }
         .otherRituals {
-            position: absolute;
-            bottom: 0;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .otherRituals .venue {
+            max-width: 100%;
         }
     </style>
 </head>
 <body>
-    <audio autoplay loop id="bgm" preload="auto">
-        <source src="./assets/TheDichotomyOfFame.mp3#t=00:00:20" type="audio/mpeg">
-        Your browser does not support the audio tag.
+    <audio autoplay loop id="bgm">
+        <source src="./assets/_TheDichotomyOfFame.mp3#t=00:00:20" type="audio/mpeg">
     </audio>
     <button href="https://www.flaticon.com/free-icons/mute" title="mute unmute button" id="muteUnmuteButton">
         <img src="./assets/icons/muted.png" height="24px" id="mutedIcon" aria-hidden="false" role="presentation">
         <img src="./assets/icons/speaker.png" height="24px" id="unMutedIcon" role="presentation" class="hide">
     </button>
-    <div class="container">
-        <h1>Wedding Invitation</h1>
+    <div class="top">
+        <h1>Grace Us With Your Presence!</h1>
         <div class="parties">
             <div class="side">
                 <h3>Shomya</h3>
                 <small>Daughter of</small>
-                <div><div>Pramod Kumar &</div>Seema Devi</div>
+                <div><div>Sri Pramod Kumar</div><div>&</div> Smt. Seema Devi</div>
             </div>
             <div class="mid">
-                <h4>Weds</h4>
+                <h3 style="line-height: 1;">
+                    <div>W</div>
+                    <div>E</div>
+                    <div>D</div>
+                    <div>S</div>
+                </h3>
             </div>
             <div class="side">
                 <h3>Sidharth</h3>
                 <small>Son of</small>
-                <div><div>Raj Kishore Prasad &</div>Dr. Sunita Prasad</div>
+                <div><div>Sri R. K. Prasad </div> <div>&</div>Dr. Sunita Prasad</div>
             </div>
             
             
         </div>
-        <p class="date">
-            <time datetime="2024-12-05">5<sup>th</sup> December 2024</time>
-        </p>
+
+        <div class="date" id="weddingDate">
+            <small class="textCenter">on</small>
+            <div class="textCenter">Thursday</div>
+            <time datetime="2024-12-05 17:00+05:30=" class="textCenter weddingDate">5<sup>th</sup> December, 2024</time>
+            <div>From 5 pm <button id="addWeddingToCalendar">Add to calendar</button></div>
+        </div>
 
         
         <a href="https://maps.app.goo.gl/LLPKPGQ7W2UEGeJg7" target="_blank" class="venue">
-            <h4 class="m0">Venue:</h4>
-            Maurya Hotel, Gobarsahi
-            <div>Muzaffarpur, Bihar</div>
+            <img src="./assets/icons/map.png" alt="" srcset="" height="24px" />
+            <div> Hotel Maurya Residency, Gobarsahi,
+                <span>Muzaffarpur, Bihar</span></div>
         </a>
-        <div class="otherRituals">
-            <h4>Other Wedding Rituals:</h4>
-            <ul>
-                <li>3rd December - Haldi and Mehendi Ceremony</li>
-                <li>4th December - Matkor puja and Priti bhoj</li>
-            </ul>
-        </div>
         
+        
+    </div>
+    <div class="otherRituals">
+        <h4 class="textCenter">Other Wedding Rituals:</h4>
+        <ul>
+            <li><time datetime="2024-12-03 17:00+05:30">3<sup>rd</sup> Dec</time> - Haldi and Mehendi Ceremony</li>
+            <li><time datetime="2024-12-04 17:00+05:30">4<sup>th</sup> Dec</time>  - Matkor puja and Priti bhoj</li>
+        </ul>
+        <a class="venue text"
+            href="https://maps.app.goo.gl/QaUthnMcqTSFiVDk6"
+            style="margin-block-start: 0;">
+            <div>
+                <img src="./assets/icons/map.png" alt="" srcset="" height="16px">
+            </div>
+            <div>
+                Kaushalya Niwas, Bairiya
+                <div>Muzaffarpur, Bihar</div>
+            </div>
+        </a>
     </div>
     <script >
         const muteUnmuteButton = document.getElementById("muteUnmuteButton");
@@ -216,8 +279,8 @@
         
         function addToCalendar() {
             const eventTitle = "Sidharth & Shomya's Wedding";
-            const eventStart = new Date('2024-12-05T17:00:00'); 
-            const eventEnd = new Date('2024-12-06T03:00:00');
+            const eventStart = new Date('2024-12-05T22:30:00');
+            const eventEnd = new Date('2024-12-06T07:00:00');
             const eventDescription = "Join us for the wedding celebration!";
             const eventLocation = "Maurya Hotel, Gobarsahi, Muzaffarpur, Bihar";
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -255,6 +318,8 @@ END:VCALENDAR`;
         function formatDate(date) {
             return date.toISOString().replace(/-|:|\.\d\d\d/g, "").slice(0, 15);
         }
+        const weddingDate = document.getElementById("weddingDate");
+        weddingDate.addEventListener("click", addToCalendar);
     </script>
 </body>
 </html>
