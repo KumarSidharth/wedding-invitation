@@ -209,7 +209,7 @@
 </head>
 <body>
     <audio autoplay loop id="bgm">
-        <source src="./assets/_TheDichotomyOfFame.mp3#t=00:00:20" type="audio/mpeg">
+        <source src="./assets/TheDichotomyOfFame.mp3#t=00:00:20" type="audio/mpeg">
     </audio>
     <button href="https://www.flaticon.com/free-icons/mute" title="mute unmute button" id="muteUnmuteButton">
         <img src="./assets/icons/muted.png" height="24px" id="mutedIcon" aria-hidden="false" role="presentation">
@@ -279,6 +279,7 @@
         const audio = document.getElementById("bgm");
         const mutedIcon = document.getElementById("mutedIcon");
         const unMutedIcon = document.getElementById("unMutedIcon");
+        // audio.play().then(console.log)
 
         function muteToggle() {
             if (audio.muted) {
